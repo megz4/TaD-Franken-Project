@@ -1,0 +1,236 @@
+body {
+    margin: 0 auto; 
+    max-width: 1200px; /* limit the maximum width */
+    background-color: #dcbc8df7;
+    color: #201616; 
+}
+
+/* uses id='text' for the transcription column to maintain white background */
+#text {
+    background-color: #f3f1ed;
+}
+
+.starter-template {
+  padding: 40px 15px;
+  text-align: center;
+}
+
+img {
+    max-width: 150%;
+}
+
+p {
+    text-indent: 15px;
+    position: relative;
+    line-height: 2;
+    text-align: start; 
+}
+
+h1 {
+    font-size: 45px;
+    margin-top: 20px;
+    color:#692727;
+    font-style: italic;
+}
+
+h5 {  /* For main title only (as h1 is used elsewhere) */
+    font-size: 55px;
+    font-weight: bold; 
+    color: #609850; 
+    font-family: 'Roboto', sans-serif;
+    -webkit-text-stroke: 1px #333e30;
+    text-align: center; 
+    margin-top: 20px; 
+    margin-bottom: 15px; 
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); 
+}
+
+
+h2 {
+    font-size: large;
+    font-weight: bold;
+    color: rgb(96, 42, 42);
+    margin-left: 25px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 25px;
+    font-weight: bolder;
+    color: rgb(33, 9, 9);
+    margin-left: 25px;
+}
+
+
+.row {
+    width: 100%;
+    margin-left: 0;
+}
+
+.col {
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
+/* margin text  */
+
+.marginAdd {
+        display: none;
+}
+
+
+.leftMargin {
+    font-size: 80%; 
+    }
+
+.mirador-canvas-nav {
+    display: none !important;
+}
+
+/* add(itions) */
+
+.defaultAdd {
+    font-style: italic;
+}
+
+.supraAdd {
+    position: relative;
+    top: -12px;
+    font-size: smaller; 
+    font-style: italic;
+    white-space: nowrap; 
+}
+
+.infraAdd {
+    position: relative;
+    bottom: -8px;
+    font-size: smaller; 
+    font-style: italic;
+    white-space: nowrap; 
+}
+  
+del {
+    text-decoration: line-through; 
+    text-decoration-color: black; 
+    text-decoration-thickness: 1.2px;
+    font-style: italic; 
+}
+
+/* hi(ghlights) */
+
+.underline {
+    position: relative;
+    text-decoration-line: underline; 
+    }
+
+.double {
+    position: relative;
+    text-decoration-line: underline; 
+    box-shadow: 0px 1px 0px black, 0px 1px 0px black;
+    }
+
+.indented {
+    display: inline-block;
+    width: 1em;
+    }
+
+.subscript  /* For 'th' in 7th chapter on the cover*/
+{
+    position: relative;
+    font-size: 65%; 
+    text-decoration-line: underline; 
+    top: -4px;
+}
+
+.circled {
+    width: 45px; /* Circle size */
+    height: 44px; /* Circle size */
+    border: 1px solid black; /* Circle border */
+    border-radius: 50%; /* Turns it into a circle */
+    font-size:80%; 
+    text-align: center; 
+    line-height: 40px; 
+    font-weight: bold; 
+    }
+
+
+/* page-number */
+
+.center {
+    display: flex; /* Enable flexbox for centering */
+    justify-content: center; 
+    margin-top: 10px; 
+    margin-bottom: 20px; 
+    color: black;
+} 
+
+.left {
+    display: flex; 
+    justify-content: left;
+    margin-top: 20px;
+    margin-bottom: 5%;
+    color: black;
+}
+
+.right {
+    display: flex; 
+    justify-content: right; 
+    margin-top: 20px; 
+    margin-bottom: 5px; 
+    color: black;
+}
+
+
+
+.imageStyle {
+    width: 80%;
+    max-width: 400px;
+    height: auto;
+    border:4px solid black; 
+    display: block; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.description {
+    text-align: center; 
+    margin-top: 10px; 
+    line-height: 1.5;
+}
+  
+
+/* button */
+
+
+.button-container {
+    display: inline-block; 
+    text-align: right; 
+    margin-bottom: 10px;
+
+ }
+
+  .button {
+    display: inline-block; 
+    background-color: #899db3;
+    border:4px solid gray; 
+    color: white; 
+    padding: 10px 10px; 
+    border-radius: 4px;
+    font-size: 17px;
+   
+  }
+  
+  .button:hover {
+    background-color: #6e94bd;  
+    color: black; 
+  }
+  
+  /* dropdown */
+
+  .form-group {
+    display: inline-block;
+    width: 80%;
+    vertical-align: middle;
+    margin-bottom: 5px;
+  }
