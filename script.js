@@ -1,19 +1,23 @@
 // Declare variables for getting the xml file for the XSL transformation (folio_xml) and to load the image in IIIF on the page in question (number).
-let tei = document.getElementById("folio");
-let tei_xml = tei.innerHTML;
-let extension = ".xml";
-let folio_xml = tei_xml.concat(extension);
-let page = document.getElementById("page");
-let pageN = page.innerHTML;
-let number = Number(pageN);
+
+// Find each HTML corresponding XML file based on folio number
+let tei = document.getElementById("folio"); // Get the folio number from the HTML element with id "folio"
+let tei_xml = tei.innerHTML; // Get what's inside the file as a string
+let extension = ".xml"; // Add the extension to the folio number to get the full path to the XML file
+let folio_xml = tei_xml.concat(extension); // Concatenate for full path name
+
+// Mirador viewer for IIIF images
+let page = document.getElementById("page"); // Get the page number from the HTML element with id "page"
+let pageN = page.innerHTML; // Get what's inside the file as a string
+let number = Number(pageN); // Convert the string to a number for Mirador
 
 // Loading the IIIF manifest
-var mirador = Mirador.viewer({
+var mirador = Mirador.viewer({ // Mirador is a library specifically for digital manuscripts
   "id": "my-mirador",
   "manifests": {
     "https://iiif.bodleian.ox.ac.uk/iiif/manifest/53fd0f29-d482-46e1-aa9d-37829b49987d.json": {
       provider: "Bodleian Library, University of Oxford"
-    }
+    } // Pointing Mirador to the Bodleian Library Archive to fetch the images
   },
   "window": {
     allowClose: false,
@@ -36,7 +40,7 @@ var mirador = Mirador.viewer({
   "windows": [
     {
       loadedManifest: "https://iiif.bodleian.ox.ac.uk/iiif/manifest/53fd0f29-d482-46e1-aa9d-37829b49987d.json",
-      canvasIndex: number,
+      canvasIndex: number, // Refer back to the recived page number to load the correct image
       thumbnailNavigationPosition: 'off'
     }
   ]
@@ -46,22 +50,23 @@ var mirador = Mirador.viewer({
 // function to transform the text encoded in TEI with the xsl stylesheet "Frankenstein_text.xsl", this will apply the templates and output the text in the html <div id="text">
 function documentLoader() {
 
+    // Promise: fetch both the XML and XSL files together
     Promise.all([
       fetch(folio_xml).then(response => response.text()),
       fetch("Frankenstein_text.xsl").then(response => response.text())
     ])
-    .then(function ([xmlString, xslString]) {
-      var parser = new DOMParser();
-      var xml_doc = parser.parseFromString(xmlString, "text/xml");
-      var xsl_doc = parser.parseFromString(xslString, "text/xml");
+    .then(function ([xmlString, xslString]) { // Once both files are fetched, parse them into XML documents
+      var parser = new DOMParser(); // Tool to parse the XML and XSL strings as XML documents instead of letters
+      var xml_doc = parser.parseFromString(xmlString, "text/xml"); 
+      var xsl_doc = parser.parseFromString(xslString, "text/xml"); 
 
-      var xsltProcessor = new XSLTProcessor();
-      xsltProcessor.importStylesheet(xsl_doc);
-      var resultDocument = xsltProcessor.transformToFragment(xml_doc, document);
+      var xsltProcessor = new XSLTProcessor(); // Tool to apply the XSL transformation to the XML document
+      xsltProcessor.importStylesheet(xsl_doc); // Import the XSL stylesheet into the processor
+      var resultDocument = xsltProcessor.transformToFragment(xml_doc, document); // Combine the XML and XSL stylesheet to produce the final HTML fragment
 
-      var criticalElement = document.getElementById("text");
-      criticalElement.innerHTML = ''; // Clear existing content
-      criticalElement.appendChild(resultDocument);
+      var criticalElement = document.getElementById("text"); // Find the HTML element with id "text" to insert the transformed content
+      criticalElement.innerHTML = ''; // Clear existing content with an empty string to avoid duplication
+      criticalElement.appendChild(resultDocument); // Insert the transformed content into the HTML 
     })
     .catch(function (error) {
       console.error("Error loading documents:", error);
@@ -72,8 +77,8 @@ function documentLoader() {
   function statsLoader() {
 
     Promise.all([
-      fetch(folio_xml).then(response => response.text()),
-      fetch("Frankenstein_meta.xsl").then(response => response.text())
+      fetch(folio_xml).then(response => response.text()), // Fetch the XML file for the current folio
+      fetch("Frankenstein_meta.xsl").then(response => response.text()) // Fetch the XSL stylesheet for the metadata transformation
     ])
     .then(function ([xmlString, xslString]) {
       var parser = new DOMParser();
@@ -105,7 +110,7 @@ function documentLoader() {
   var PercyArray = Array.from(visible_percy);
 
     if (event.target.value == 'both') {
-    //write an forEach() method that shows all the text written and modified by both hand (in black?). The forEach() method of Array instances executes a provided function once for each array element.
+    //write an forEach() method that shows all the text written and modified by both hand (in black). The forEach() method of Array instances executes a provided function once for each array element.
      
     MaryArray.forEach(
     (element) =>
@@ -122,7 +127,7 @@ function documentLoader() {
     );
 
     } else if (event.target.value == 'Mary') {
-     //write an forEach() method that shows all the text written and modified by Mary in a different color (or highlight it) and the text by Percy in black. 
+     //write an forEach() method that shows all the text written and modified by Mary in a different color (highlight) and the text by Percy in black. 
      
     MaryArray.forEach(
       (element) =>
@@ -138,7 +143,7 @@ function documentLoader() {
         }
       );
     } else if (event.target.value == 'Percy') {
-     //write an forEach() method that shows all the text written and modified by Percy in a different color (or highlight it) and the text by Mary in black.
+     //write an forEach() method that shows all the text written and modified by Percy in a different color (highlight) and the text by Mary in black.
     
      MaryArray.forEach(
       (element) =>
@@ -254,7 +259,7 @@ function documentLoader() {
       );
 
       leftmarginArray.forEach((element) => {
-        element.style.removeProperty('display'); // Dont display in the text
+        element.style.removeProperty('display'); // Don't display in the text
       }
     );
      }
@@ -301,7 +306,7 @@ function documentLoader() {
       );
 
       leftmarginArray.forEach((element) => {
-        element.style.display = 'none';   // Dont display in the margin
+        element.style.display = 'none';   // Don't display in the margin
       }
     );
 
