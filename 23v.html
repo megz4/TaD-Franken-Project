@@ -15,14 +15,17 @@
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="index.html">Frankenstein</a>
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <a class="navbar-brand" href="index.html">Frankenstein</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav">
-          <a class="nav-link" href="index.html">Home</a>
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Pages
@@ -43,16 +46,17 @@
         </ul>
       </div>
     </nav>
+
     <div class="container-fluid">
-      <h1>Frankenstein Volume I Draft in Chapter Sequence</h1>
+      <h1></h1>
       <span style="visibility:hidden" id='page'>49</span>
-      <h3>Page 80</h3>
-      <h2 id='folio'>23v</h2> <!-- keep the id="folio" and the elements value *unchanged* -->
+      <h2>Frankenstein Volume I Draft in Chapter Sequence: Page 80</h2>
+      <h3 id='folio'>23v</h3> <!-- keep the id="folio" and the elements value *unchanged* -->
       <div id="stats"></div>
       
        <!-- hand toggle  -->
        <div class="form-group">
-        <select class="form-control" id="sel-hand" onChange="selectHand(event)">
+        <select class="form-control victorian-select" id="sel-hand" onChange="selectHand(event)">
           <option value="both">Both Hands</option>
           <option value="Mary">Mary Shelley's Hand Highlighted</option>
           <option value="Percy">Percy Shelley's Hand Highlighted</option>
@@ -61,7 +65,7 @@
 
       <!-- deletion toggle  -->
       <div class="form-group">
-        <select class="form-control" id="vis-del" onChange="toggleDel(event)">
+        <select class="form-control victorian-select" id="vis-del" onChange="toggleDel(event)">
           <option value="show">Show Deletions</option>
           <option value="cover">Cover Deletions</option>
           <option value="hide">Hide Deletions</option>
