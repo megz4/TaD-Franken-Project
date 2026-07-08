@@ -23,8 +23,6 @@ h1 {  /* For main titles */
 }
 
 
-
-
 h2, h3, h4 {
     font-family: "Cormorant Garamond", serif;
     font-weight: 600;
@@ -49,21 +47,12 @@ h2, h3, h4 {
     box-shadow: 0px 8px 20px rgba(0,0,0,0.15);
 }
 
+
 #stats {
-    font-family: "Cormorant Garamond", serif;
-    color: #503131;
-    border-left: 3px solid #b89b72;
-    padding-left: 15px;
+    background-color: #e0d0ac;
+    font-size: 90%;
 }
 
-.starter-template {
-  padding: 40px 15px;
-  text-align: center;
-}
-
-img {
-    max-width: 150%;
-}
 
 p {
     text-indent: 15px;
@@ -72,79 +61,22 @@ p {
     text-align: start; 
 }
 
-/*
-h1 {
-    font-size: 45px;
-    margin-top: 20px;
-    color:#692727;
-    font-style: italic;
-}
-
-
-
-h2 {
-    font-size: large;
-    font-weight: bold;
-    color: rgb(96, 42, 42);
-    margin-left: 25px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-}
-
-h3 {
-    font-size: 25px;
-    font-weight: bolder;
-    color: rgb(33, 9, 9);
-    margin-left: 25px;
-}
-
-*/
-
-
-
 
 .row {
     width: 100%;
     margin-left: 0;
 }
 
-.col {
-  margin-left: 10px;
-  margin-right: 10px;
-}
 
-
-.navbar {
-    background-color: #3b1f1f;
-    border-bottom: 3px solid #b89b72;
-}
-
-.navbar-brand, .nav-link {
-    color: #ecd4a8 !important;
-    font-family: "Cinzel", serif;
-    font-size: 20px;
-    letter-spacing: 5px;
-}
-
-.nav-link:hover {
-    color: #d4af37 !important;
-    margin-left: 15px;
-    letter-spacing: 1px;
-}
-
-
-
-
-/* margin text  */
-
+/* Margin text toggle to remove duplicate text and repurpose marginal and running text*/
 .marginAdd {
         display: none;
 }
 
-
-.leftMargin {
+/* Control text in left margin */
+.leftMargin { 
     font-size: 80%; 
-    }
+}
 
 .mirador-canvas-nav {
     display: none !important;
@@ -185,18 +117,21 @@ del {
 .underline {
     position: relative;
     text-decoration-line: underline; 
-    }
+}
+
 
 .double {
     position: relative;
     text-decoration-line: underline; 
     box-shadow: 0px 1px 0px black, 0px 1px 0px black;
-    }
+}
+
 
 .indented {
     display: inline-block;
     width: 1em;
-    }
+}
+
 
 .subscript  /* For 'th' in 7th chapter on the cover*/
 {
@@ -206,6 +141,8 @@ del {
     top: -4px;
 }
 
+
+/* Page numbering */
 .circled {
     width: 45px; /* Circle size */
     height: 44px; /* Circle size */
@@ -215,10 +152,7 @@ del {
     text-align: center; 
     line-height: 40px; 
     font-weight: bold; 
-    }
-
-
-/* page-number */
+}
 
 .center {
     display: flex; /* Enable flexbox for centering */
@@ -245,7 +179,7 @@ del {
 }
 
 
-
+/* Images */
 .imageStyle {
     width: 80%;
     max-width: 400px;
@@ -256,6 +190,7 @@ del {
     margin-right: auto; 
 }
 
+
 .description {
     text-align: center; 
     margin-top: 10px; 
@@ -263,17 +198,16 @@ del {
 }
   
 
-/* button */
-
-
+/* Buttons */
 .button-container {
     display: inline-block; 
     text-align: right; 
     margin-bottom: 10px;
 
- }
+}
 
-.button, .navbar-toggler {
+
+.button {
     background-color: #5c2c2c;
     color: #f9ecd5;
     border-radius: 20px;
@@ -283,26 +217,64 @@ del {
     border: 1px solid #b89b72;
 }
 
-.button:hover, .navbar-toggler:hover {
+
+.button:hover {
     background-color: #8b5e3c;
     color: white;
 }
 
 
+/* Hamburger menu button */
+.navbar-toggler {
+    background-color: #5c2c2c;
+    color: #f9ecd5;
+    border-radius: 20px;
+    padding: 6px 15px;
+    border: 1px solid #b89b72;
+}
 
-  /* dropdown */
 
+.navbar-toggler:hover {
+    background-color: #8b5e3c;
+}
+
+
+/* Navigation bar */
+.navbar {
+    background-color: #3b1f1f;
+    border-bottom: 3px solid #b89b72;
+}
+
+
+.navbar-brand, .nav-link {
+    color: #ecd4a8 !important;
+    font-family: "Cinzel", serif;
+    font-size: 20px;
+    letter-spacing: 5px;
+}
+
+
+.nav-link:hover {
+    color: #d4af37 !important;
+    margin-left: 15px;
+    transform: translateX(5px);
+}
+
+
+/* Pages dropdown */
 .form-group {
     display: inline-block;
     width: 80%;
     vertical-align: middle;
     margin-bottom: 5px;
-  }
+}
+
 
 .dropdown-menu {
     background-color: #4a2b2b;
     border: 1px solid #b89b72;
 }
+
 
 .dropdown-item {
     color: #f4ead8;
@@ -311,13 +283,14 @@ del {
     letter-spacing: 1px;
 }
 
+
 .dropdown-item:hover {
     background-color: #8b5e3c;
     color: #fff;
 }
 
-/* folio manuscript dropdown (victorian) */
 
+/* Manuscript dropdown (victorian) */
 .victorian-select, .victorian-select:focus {
     background-color: #3b1f1f;
     color: #f4ead8;
@@ -329,6 +302,7 @@ del {
 
 .victorian-select:hover {
     background-color: #5c2c2c;
+    color: #d4af37;
 }
 
 .victorian-select option {
